@@ -10,14 +10,14 @@ script:
 
 
 after_success:
-  -docker build -t jknighten/multi-client ./client
-  -docker build -t jknighten/multi-nginx ./nginx
-  -docker build -t jknighten/mutli-server ./server
-  -docker build -t jknighten/multi-worker ./worker
+  - docker build -t jknighten/multi-client ./client
+  - docker build -t jknighten/multi-nginx ./nginx
+  - docker build -t jknighten/mutli-server ./server
+  - docker build -t jknighten/multi-worker ./worker
 
-  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin_open
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin_open
 
-  -docker push jknighten/multi-client
-  -docker push jknighten/multi-nginx
-  -docker push jknighten/multi-server
-  -docker push jknighten/multi-worker
+  - docker push jknighten/multi-client
+  - docker push jknighten/multi-nginx
+  - docker push jknighten/multi-server
+  - docker push jknighten/multi-worker
