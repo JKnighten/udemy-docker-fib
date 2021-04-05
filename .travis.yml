@@ -1,4 +1,5 @@
 sudo: required
+language: generic 
 services:
   - docker
 
@@ -12,7 +13,7 @@ script:
 after_success:
   - docker build -t jknighten/multi-client ./client
   - docker build -t jknighten/multi-nginx ./nginx
-  - docker build -t jknighten/mutli-server ./server
+  - docker build -t jknighten/multi-server ./server
   - docker build -t jknighten/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
